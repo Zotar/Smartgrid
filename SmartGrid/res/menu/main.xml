@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+      
+    <!-- SunCells -->    
+    <item 
+        android:id="@+id/SunCells" 
+        android:icon="@drawable/icon_suncells" 
+        android:title="@string/menu_suncells" 
+        android:orderInCategory="2"
+        android:showAsAction="always|withText"
+
+    ></item>
+    
+    <!-- Windturbine -->  
+    <item 
+        android:id="@+id/WindTurbine" 
+        android:icon="@drawable/icon_windturbine" 
+        android:title="@string/menu_windturbine" 
+        android:orderInCategory="3"
+        android:showAsAction="always|withText"
+    ></item>
+
+    
+</menu>
