@@ -126,14 +126,14 @@ public class DataBaseHelper extends SQLiteOpenHelper
 	 
 	    }
 	   
-	    //Open the database
-	    public void openDataBase() throws SQLException
+	    //Open for the database
+	    public void open() throws SQLException
 	    {
 	        String myPath = DB_PATH + DB_NAME;
 	    	myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 	    }
 	 
-	    //Open the database
+	    //Close for the database
 	    @Override
 		public void close()
 	    {
@@ -162,23 +162,22 @@ public class DataBaseHelper extends SQLiteOpenHelper
         // and return a ArrayList with contents name, icao , lat, lng (Class Weather) from a country string 		
 		public ArrayList<Weather> listWeatherInCountry(String countryName)
 		{
-			ArrayList<Weather> weathers = new ArrayList<Weather>();
+			ArrayList<Weather> weather = new ArrayList<Weather>();
 			
 			Cursor myCursor = myDataBase.rawQuery("SELECT icao, lat, long, name FROM weather WHERE country ='"
 												  + countryName +"' ORDER BY name", null);
-			
 			myCursor.moveToNext();
 			
 			while (!myCursor.isAfterLast()) 
 			{
-				Weather weather = new Weather(myCursor.getString(0), myCursor.getDouble(1), myCursor.getDouble(2), myCursor.getString(3));
+				Weather weatherData = new Weather(myCursor.getString(0), myCursor.getDouble(1), myCursor.getDouble(2), myCursor.getString(3));
 				
-				weathers.add(weather);
+				weather.add(weatherData);
 				myCursor.moveToNext();
 			}
 			
 			myCursor.close();
 			
-			return weathers;
+			return weather;
 		}
 }

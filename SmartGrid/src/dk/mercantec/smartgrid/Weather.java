@@ -1,6 +1,6 @@
 package dk.mercantec.smartgrid;
 
-//Weather Class content weather station in denmark
+//Weather Class content weather station location in Denmark
 public class Weather 
 {
 	public String icaoCode;

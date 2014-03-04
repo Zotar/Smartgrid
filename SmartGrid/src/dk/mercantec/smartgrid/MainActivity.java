@@ -122,7 +122,7 @@ public class MainActivity extends FragmentActivity
 		//start main activity layout
 		setContentView(R.layout.activity_main);		
 	
-		//progressbar handler
+		//progressbar handler that get the layout of the progressbar.
 		progressbar = (ProgressBar) findViewById(R.id.action_progress);		
 		
         // Getting reference to the SupportMapFragment of activity_main.xml
@@ -186,7 +186,7 @@ public class MainActivity extends FragmentActivity
         try 
         {
         	myDbHelper.createDataBase();
-        	myDbHelper.openDataBase();
+        	myDbHelper.open();
 	 	}
         catch (IOException ioe)
         {
@@ -198,7 +198,8 @@ public class MainActivity extends FragmentActivity
 	 	}
                		
 		String Contry = "Denmark";
-
+       
+		//Getting data from database
         ArrayList<Weather> listweather = myDbHelper.listWeatherInCountry(Contry);
     
         myDbHelper.close();
@@ -389,7 +390,7 @@ public class MainActivity extends FragmentActivity
 	    	
 	        progressbar.setVisibility(View.VISIBLE);
 
-	        Log.i("progressbar", "0");
+	        //Log.i("progressbar", "0");
 	        
 	        
 	    };
